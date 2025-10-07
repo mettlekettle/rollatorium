@@ -1,0 +1,19 @@
+[package]
+name = "rollatorium-fuzz"
+edition = "2024"
+publish = false
+
+[package.metadata]
+fuzz = true
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+rollatorium = { path = ".." }
+
+[[bin]]
+name = "parser"
+path = "fuzz_targets/parse_and_eval.rs"
+test = false
+doc = false
+bench = false
